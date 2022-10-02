@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    string name;
+    int total, correct, scale;
+    double score;
+    
+    cout << "Please input data.\nthe number of questions: ";
+    cin >> total;
+    cout << "maximum score: ";
+    cin >> scale;
+    
+    do
+    { 
+        cout << "\nthe amount of correct answer(s): ";
+        cin >> correct;
+    
+        if (correct >= 0 && correct <= total)
+        {
+            cin.ignore();
+            cout << "student's name: ";
+            getline (cin, name);
+                
+            score = static_cast<double> (correct) / total * scale;
+                
+            cout << name << "\'s score is " << score << "\n";    
+            cout << "\nEnter -1 if you're done\n";
+        }
+        else
+            if (correct != -1) 
+            cout << "invalid\n";
+            else 
+            cout << "Program ends\n";
+    }
+    while (correct != -1);
+
+    return 0;
+}
